@@ -1,0 +1,177 @@
+﻿<UserControl x:Class="C9VLNK_HFT_20211221.WpfClient.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:C9VLNK_HFT_20211221.WpfClient.View"
+             xmlns:vm="clr-namespace:C9VLNK_HFT_20211221.WpfClient.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:HomeWindowViewModel/>
+    </UserControl.DataContext>
+    
+    <StackPanel>
+        <TextBlock Text="Home"
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="Left"
+                   Margin="0,0,0,20"/>
+
+        <StackPanel Orientation="Horizontal">
+            <Border Width="400"
+                    Height="200"
+                    Margin="0,0,0,10"
+                    VerticalAlignment="Center"
+                    
+                    >
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#5bc5ff" Offset="0.0"/>
+                        <GradientStop Color="#3aa0ff" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,400,200"
+                                       >
+                    </RectangleGeometry>
+                </Border.Clip>
+
+                <Grid>
+                    <StackPanel >
+                        <TextBlock Text="World leader in&#x0a;music broadcast"
+                                   Foreground="White"
+                                   FontSize="28"
+                                   Margin="20,10,10,0"/>
+
+
+                        <TextBlock Text="Get Started"
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Margin="20,10,10,0"/>
+
+                    </StackPanel>
+                </Grid>
+
+            </Border>
+
+            <Border     Width="200"
+                        Height="200"
+                        CornerRadius="10"
+                        Margin="45,0,0,0"
+                        Background="#ffb73a">
+
+                <Button Background="#ffb73a"
+                        Height="190"
+                        Width="190"
+                        Command="{Binding OpenGitHub}"
+                        BorderThickness="0">
+                        
+                    <Image
+                      Source="D:\Egyetem\4.felev\SZTGUI\Féléves Upgrade\C9VLNK_HFT_2021221-master\C9VLNK_HFT_2021221-master\C9VLNK_HFT_20211221.WpfClient\bin\Debug\net5.0-windows\Images\github.png"
+                    />
+
+                </Button>
+
+
+
+            </Border>
+
+
+        </StackPanel>
+
+        <StackPanel>
+
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Margin" Value="15,0,0,0">
+
+                    </Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Most Listened"
+                   Foreground="White"
+                   FontSize="20"
+                   HorizontalAlignment="Left"
+                   Margin="0,0,0,10"/>
+
+            <StackPanel Orientation="Horizontal">
+
+
+                <Border Width="150"
+                        Height="150"
+                        Background="#4e99ff"
+                        CornerRadius="10"
+                        Margin="0">
+                    <Label  
+                        Margin="0"
+                        FontSize="17"
+                        Foreground="White"
+                        Content="{Binding PlaysInDatabase}"
+                        ContentStringFormat="&#x0a;All Time Listeners: &#x0a;&#x0a;{0}"
+                        HorizontalContentAlignment="Center"
+                        HorizontalAlignment="Center"
+                        FontWeight="DemiBold">
+                        
+                    </Label>
+
+                </Border>
+
+                <Border CornerRadius="10" 
+                        Width="150"
+                        Height="150"
+                        Background="#844eff">
+                    <Label
+                        ContentStringFormat="&#x0a;Most Listened: &#x0a;&#x0a;{0}"
+                        HorizontalContentAlignment="Center"
+                        HorizontalAlignment="Center" 
+                        FontSize="17"
+                        Foreground="White"
+                        Content="{Binding MostListenedArtist.Name}"
+                        FontWeight="DemiBold">
+
+                    </Label>
+                </Border>
+
+                <Border Width="150"
+                        Height="150"
+                        Background="#4eff91"
+                        CornerRadius="10"
+                        >
+
+                    <Label  
+                        Margin="0"
+                        FontSize="17"
+                        Foreground="#272537"
+                        Content="{Binding MostFamousCountryAmongArtists}"
+                        ContentStringFormat="&#x0a;Most Famous &#x0a;Country Amoung&#x0a;Artists: &#x0a;&#x0a;{0}"
+                        HorizontalContentAlignment="Center"
+                        HorizontalAlignment="Center"
+                        FontWeight="DemiBold">
+
+                    </Label>
+
+                </Border>
+
+                <Border Width="150"
+                        Height="150"
+                        Background="#ecff4e"
+                        CornerRadius="10">
+ 
+                    
+                </Border>
+
+
+                
+
+
+
+            </StackPanel>
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>
