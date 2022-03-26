@@ -104,7 +104,7 @@
                             FontSize="20">
                     </Button>
 
-                    <Button Command="{Binding DeleteSongCommand}"
+                    <Button Command="{Binding CreateSongCommand}"
                             Foreground="#272537"
                             Background="#4EFF91"
                             Padding="10"

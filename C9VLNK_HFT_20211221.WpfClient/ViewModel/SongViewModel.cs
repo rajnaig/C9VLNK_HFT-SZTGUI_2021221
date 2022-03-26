@@ -11,7 +11,7 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
 {
     public class SongViewModel : ObservableRecipient
     {
-
+        ISongCreatorService songCreatorService;
         ISongEditorService songEditorService;
         private Song selectedSong;
 
@@ -35,7 +35,7 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
                         Title = value.Title,
                         SongId = value.SongId,
                         SongCover = value.SongCover,
-                        
+
                     };
                     SetProperty(ref selectedSong, value);
                     ((RelayCommand)DeleteSongCommand).NotifyCanExecuteChanged();
@@ -50,7 +50,10 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
             Songs.Update(song);
         }
 
-
+        public void AddNewlyCreatedSong(Song song)
+        {
+            Songs.Add(song);
+        }
         public static bool IsInDesignMode
         {
             get
@@ -60,20 +63,23 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
             }
         }
 
-        public SongViewModel() :this(IsInDesignMode ? null :Ioc.Default.GetService<ISongEditorService>())
+        public SongViewModel() : this(IsInDesignMode ? null : Ioc.Default.GetService<ISongEditorService>(),
+                                    (IsInDesignMode ? null : Ioc.Default.GetService<ISongCreatorService>()))
         {
 
         }
         public ICommand DeleteSongCommand { get; set; }
         public ICommand EditSongCommand { get; set; }
+        public ICommand CreateSongCommand { get; set; }
         public RestCollection<Song> Songs { get; set; }
 
-        public SongViewModel(ISongEditorService songEditorService)
+        public SongViewModel(ISongEditorService songEditorService, ISongCreatorService songCreatorService)
         {
             if (!IsInDesignMode)
             {
                 Songs = new RestCollection<Song>("http://localhost:39308/", "song");
                 this.songEditorService = songEditorService;
+                this.songCreatorService = songCreatorService;
                 DeleteSongCommand = new RelayCommand(() =>
                 {
                     Songs.Delete(SelectedSong.AlbumId);
@@ -86,6 +92,10 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
                 EditSongCommand = new RelayCommand(
                     () => songEditorService.EditSong(SelectedSong),
                     () => SelectedSong != null
+                );
+
+                CreateSongCommand = new RelayCommand(
+                    () => songCreatorService.RegisterNewSong()
                 );
 
                 SelectedSong = new Song();
