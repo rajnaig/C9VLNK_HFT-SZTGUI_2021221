@@ -139,8 +139,9 @@
 
                 <Label  FontSize="20" Content="Country" Padding="10" Background="#272537" Foreground="White"/>
 
-                <ComboBox ItemsSource="{Binding Source={ex:EnumBindingSource {x:Type model:Countries}}}"
-                      
+                <ComboBox 
+                    ItemsSource="{Binding Source={ex:EnumBindingSource {x:Type model:Countries}}}"
+                     
                       Padding="15"
                       FontSize="20"
                       Background="#272537"

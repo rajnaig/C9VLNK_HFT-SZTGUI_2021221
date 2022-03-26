@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
 {
-    public class AlbumViewModel : ObservableObject
+    public class AlbumViewModel : ObservableRecipient
     {
         IAlbumEditorService albumEditorService;
         IAlbumCreatorService albumCreatorService;

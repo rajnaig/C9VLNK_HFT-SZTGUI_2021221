@@ -40,7 +40,7 @@ namespace C9VLNK_HFT_2021221.Data
                 ArtistGenre = Genres.Indie,
                 ArtistId = 1,
                 Name = "Mac Demarco",
-                //ProfilPicture = "./Images/MacDemarco.jpg"
+                //ProfilPicture = @"Images\MacDemarco.jpg"
                 ProfilPicture = @"D:\Egyetem\4.felev\SZTGUI\Féléves Upgrade\C9VLNK_HFT_2021221-master\C9VLNK_HFT_2021221-master\C9VLNK_HFT_20211221.WpfClient\bin\Debug\net5.0-windows\Images\MacDemarco.jpg"
             };
 

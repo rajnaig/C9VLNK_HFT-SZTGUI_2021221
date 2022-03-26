@@ -161,15 +161,22 @@
                         Height="150"
                         Background="#ecff4e"
                         CornerRadius="10">
- 
-                    
+
+                    <Button 
+                        Margin="0,0,0,0"
+                        Padding="0"
+                        Background="#ecff4e"
+                        Height="100"
+                        Width="100"
+                        Command="{Binding OpenOEWebsite}"
+                        BorderThickness="0">
+
+                        <Image
+                      Source="D:\Egyetem\4.felev\SZTGUI\Féléves Upgrade\C9VLNK_HFT_2021221-master\C9VLNK_HFT_2021221-master\C9VLNK_HFT_20211221.WpfClient\bin\Debug\net5.0-windows\Images\oe-removebg-preview.png"
+                    />
+
+                    </Button>
                 </Border>
-
-
-                
-
-
-
             </StackPanel>
         </StackPanel>
 

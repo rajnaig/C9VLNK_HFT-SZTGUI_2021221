@@ -25,7 +25,6 @@ namespace C9VLNK_HFT_20211221.WpfClient
     {
         public Artist currentArtist { get; set; }
         
-        
         public ArtistEditorWindow(Artist artist)
         {
             InitializeComponent();

@@ -70,6 +70,13 @@ namespace C9VLNK_HFT_2021221.Repository.Repositories
             toUpdateSong.Plays = song.Plays;
             toUpdateSong.ReleaseDate = song.ReleaseDate;
             toUpdateSong.Producer = song.Producer;
+            toUpdateSong.SongCover = song.SongCover;    
+            
+            toUpdateSong.AlbumId = song.AlbumId;
+            toUpdateSong.LengthTicks = song.LengthTicks;
+            toUpdateSong.SongGenre = song.SongGenre;
+            
+            
             ctx.SaveChanges();
         }
         public int GetSongPlays(Song song)

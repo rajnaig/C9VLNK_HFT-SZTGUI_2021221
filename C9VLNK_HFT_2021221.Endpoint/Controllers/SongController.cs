@@ -1,6 +1,8 @@
-﻿using C9VLNK_HFT_2021221.Logic;
+﻿using C9VLNK_HFT_2021221.Endpoint.Services;
+using C9VLNK_HFT_2021221.Logic;
 using C9VLNK_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 
@@ -12,11 +14,12 @@ namespace C9VLNK_HFT_2021221.Endpoint.Controllers
     [ApiController]
     public class SongController : ControllerBase
     {
-
+        IHubContext<SignalRHub> hub;
         ISongLogic songLogic;
-        public SongController(ISongLogic songLogic)
+        public SongController(ISongLogic songLogic, IHubContext<SignalRHub> hubContext)
         {
             this.songLogic = songLogic;
+            this.hub = hubContext;
         }
         // GET: api/<SongController>
         [HttpGet]
@@ -40,14 +43,12 @@ namespace C9VLNK_HFT_2021221.Endpoint.Controllers
         }
 
 
-
-
-
         // PUT /song
-        [HttpPut("{id}")]
-        public void Put(Song value)
+        [HttpPut]
+        public void Put([FromBody] Song value)
         {
             songLogic.UpdateFullSong(value);
+            hub.Clients.All.SendAsync("SongUpdated", value);
         }
 
         [Route("updateStitle/{id}/{newTitle}")]

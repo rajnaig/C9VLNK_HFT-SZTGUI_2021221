@@ -23,6 +23,7 @@ namespace C9VLNK_HFT_20211221.WpfClient
                     .AddSingleton<IArtistCreatorService,ArtistCreatorViaWindow>()
                     .AddSingleton<IAlbumEditorService, AlbumEditorViaWindow>()
                     .AddSingleton<IAlbumCreatorService, AlbumCreatorViaWindow>()
+                    .AddSingleton<ISongEditorService, SongEditorViaWindow>()
                     .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
                     .BuildServiceProvider()
                 );

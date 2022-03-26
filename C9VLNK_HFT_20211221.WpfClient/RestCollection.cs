@@ -216,7 +216,7 @@ namespace C9VLNK_HFT_20211221.WpfClient
             if (!response.IsSuccessStatusCode)
             {
                 var error = await response.Content.ReadAsAsync<RestExceptionInfo>();
-                throw new ArgumentException(error.Msg);
+                throw new ArgumentException(error.Msg);  
             }
 
             response.EnsureSuccessStatusCode();

@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
 {
-    public class HomeWindowViewModel : ObservableObject
+    public class HomeWindowViewModel : ObservableRecipient
     {
 
         RestService rest;
@@ -62,7 +62,18 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
                 UseShellExecute = true
             });
         }
+
+        public void OpenOEWebsite()
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://nik.uni-obuda.hu/",
+                UseShellExecute = true
+            });
+        }
+
         
+
         public ICommand OpenGitHub { get; set; }
 
         public HomeWindowViewModel()

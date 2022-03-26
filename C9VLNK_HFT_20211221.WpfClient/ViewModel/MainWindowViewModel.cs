@@ -12,7 +12,7 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
 {
     public class MainWindowViewModel : ObservableRecipient
     {
-        public RelayCommand NonCrudViewCommand { get; set; }
+       
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand ArtisViewCommand { get; set; }
         public RelayCommand AlbumViewCommand { get; set; }
@@ -20,7 +20,7 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
 
 
 
-        public NonCrudFiltersViewModel NonCrudVM { get; set; }
+       
         public HomeWindowViewModel HomeVm { get; set; }
         public ArtistViewModel ArtisVM { get; set; }
         public AlbumViewModel AlbumVM { get; set; }
@@ -90,7 +90,7 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
                 ArtisVM = new ArtistViewModel();
                 AlbumVM = new AlbumViewModel();
                 SongVM = new SongViewModel();
-                NonCrudVM = new NonCrudFiltersViewModel();
+                
 
                 CurrentView = HomeVm;
 
@@ -115,10 +115,7 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
                     CurrentView = SongVM;
                 });
 
-                NonCrudViewCommand = new RelayCommand(() =>
-                {
-                    CurrentView = NonCrudVM;
-                });
+                
             }
         }
     }

@@ -93,8 +93,8 @@
                 <StackPanel Grid.Column="1">
 
                     <Button Command="{Binding DeleteArtistCommand}"
-                            Foreground="White"
-                            Background="#5bc5ff"
+                            Foreground="#272537"
+                            Background="#4EFF91"
                             Padding="10"
                             Margin="30,20,30,20"
                             VerticalAlignment="Center"
@@ -103,8 +103,8 @@
                     </Button>
 
                     <Button Command="{Binding ArtistCreatorCommand}"
-                            Foreground="White"
-                            Background="#5bc5ff"
+                            Foreground="#272537"
+                            Background="#4EFF91"
                             Padding="10"
                             Margin="30,0,30,20"
                             VerticalAlignment="Center"
@@ -113,8 +113,8 @@
                     </Button>
 
                     <Button Command="{Binding EditArtistCommand}"
-                            Foreground="White"
-                            Background="#5bc5ff"
+                            Foreground="#272537"
+                            Background="#4EFF91"
                             Padding="10"
                            Margin="30,0,30,20"
                             VerticalAlignment="Center"

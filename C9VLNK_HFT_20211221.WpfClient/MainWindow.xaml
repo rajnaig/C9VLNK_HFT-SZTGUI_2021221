@@ -141,7 +141,7 @@
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
                 <Image Grid.Column="0"
                    Grid.Row="0"
-                   Source="C:\Users\gabik\Downloads\szptsdasd.png"
+                   Source="D:\Egyetem\4.felev\SZTGUI\Féléves Upgrade\C9VLNK_HFT_2021221-master\C9VLNK_HFT_2021221-master\C9VLNK_HFT_20211221.WpfClient\bin\Debug\net5.0-windows\Images\E-removebg-preview (1).png"
                    Height="100"
                    Width="100">
                 </Image>

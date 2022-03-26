@@ -14,7 +14,7 @@ using System.Windows.Input;
 
 namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
 {
-    public class ArtistViewModel : ObservableObject
+    public class ArtistViewModel : ObservableRecipient
     {
         IArtistEditorService editorService;
         IArtistCreatorService creatorService;
@@ -96,6 +96,8 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
         {
 
         }
+
+
 
         public void DeleteArtistById(int artistId)
         {

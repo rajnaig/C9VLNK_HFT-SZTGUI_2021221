@@ -85,7 +85,49 @@
                 </Grid>
 
             </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
 
+
+                <StackPanel Grid.Column="1">
+
+                    <Button Command="{Binding DeleteSongCommand}"
+                            Foreground="#272537"
+                            Background="#4EFF91"
+                            Padding="10"
+                            Margin="30,20,30,20"
+                            VerticalAlignment="Center"
+                            Content="Delete Song"
+                            FontSize="20">
+                    </Button>
+
+                    <Button Command="{Binding DeleteSongCommand}"
+                            Foreground="#272537"
+                            Background="#4EFF91"
+                            Padding="10"
+                            Margin="30,0,30,20"
+                            VerticalAlignment="Center"
+                            Content="Create Song"
+                            FontSize="20">
+                    </Button>
+
+                    <Button Command="{Binding EditSongCommand}"
+                            Foreground="#272537"
+                            Background="#4EFF91"
+                            Padding="10"
+                           Margin="30,0,30,20"
+                            VerticalAlignment="Center"
+                            Content="Edit Song"
+                            FontSize="20">
+                    </Button>
+                </StackPanel>
+
+
+
+            </Grid>
 
         </Grid>
 
