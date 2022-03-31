@@ -40,8 +40,16 @@ namespace C9VLNK_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] Song value)
         {
             songLogic.AddSong(value);
+            hub.Clients.All.SendAsync("SongCreated", value);
         }
 
+        // DELETE api/<SongController>/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            songLogic.DeleteSong(id);
+            hub.Clients.All.SendAsync("SongDeleted",null);
+        }
 
         // PUT /song
         [HttpPut]
@@ -58,16 +66,12 @@ namespace C9VLNK_HFT_2021221.Endpoint.Controllers
             songLogic.UpdateSongTitle(id, newTitle);
         }
 
-
-
         [Route("updatesonglength/{id}/{newLength}")]
         [HttpPut("{id} {newLength}")]
         public void UpdateLength(int id, TimeSpan newLength)
         {
             songLogic.UpdateSongLength(id, newLength);
         }
-
-
 
         [Route("updatesongplays/{id}/{newPlays}")]
         [HttpPut("{id} {newPlays}")]
@@ -90,16 +94,6 @@ namespace C9VLNK_HFT_2021221.Endpoint.Controllers
         public void UpdateProducer(int id, string newProducer)
         {
             songLogic.UpdateSongProducer(id, newProducer);
-        }
-
-
-
-
-        // DELETE api/<SongController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            songLogic.DeleteSong(id);
         }
     }
 }

@@ -19,7 +19,7 @@
 
 
 
-        <ListBox ItemsSource="{Binding Artists , UpdateSourceTrigger=PropertyChanged}"
+        <ListBox ItemsSource="{Binding Artists, UpdateSourceTrigger=PropertyChanged}"
                  SelectedItem="{Binding SelectedArtist}"
                  Background="#272537"
                  FontSize="20"
@@ -48,7 +48,10 @@
                 </Grid.ColumnDefinitions>
 
 
-                <Image Grid.Column="0" Source="{Binding SelectedArtist.ProfilPicture}"
+                <Image Grid.Column="0"
+                       
+                       Source="{Binding SelectedArtist.ProfilPicture}"
+                       x:Name="testImage"
                        Height="150"
                        Width="150"
                        Stretch="Fill"

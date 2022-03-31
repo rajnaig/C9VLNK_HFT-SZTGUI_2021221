@@ -120,7 +120,7 @@ namespace C9VLNK_HFT_2021221.Logic
         }
         public IEnumerable<Album> ReadAllAlbums()
         {
-            var list = albumRepository.GetAll().ToList();
+            var list = albumRepository.GetAll();
             if (list == null)
             {
                 throw new NullReferenceException("No album found in the DataBase..");

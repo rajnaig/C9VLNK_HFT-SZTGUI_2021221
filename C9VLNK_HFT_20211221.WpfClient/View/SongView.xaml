@@ -19,7 +19,7 @@
 
 
 
-        <ListBox ItemsSource="{Binding Songs}"
+        <ListBox ItemsSource="{Binding Songs, UpdateSourceTrigger=PropertyChanged}"
                  SelectedItem="{Binding SelectedSong}"
                  Background="#272537"
                  FontSize="20"
@@ -71,16 +71,18 @@
 
                     </Label>
 
-                    <Label Foreground="White" FontSize="30" Grid.Column="0" Grid.Row="1" Content="{Binding SelectedSong.Title}" VerticalContentAlignment="Bottom">
+                    <Label Foreground="White" FontSize="20" Grid.Column="0" Grid.Row="1" Content="{Binding SelectedSong.Title}"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Left">
 
                     </Label>
 
                     <Label Foreground="White" FontSize="20" Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Bottom"
-                            Content="{Binding SelectedSong.Album.Artist.Name}">
+                            Content="{Binding SelectedSong.AlbumId}">
                     </Label>
 
                     <Label Foreground="White" FontSize="20" Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Bottom"
-                            Content="{Binding SelectedSong.ReleaseDate}">
+                            Content="{Binding SelectedSong.SongGenre}">
                     </Label>
                 </Grid>
 
@@ -124,9 +126,6 @@
                             FontSize="20">
                     </Button>
                 </StackPanel>
-
-
-
             </Grid>
 
         </Grid>

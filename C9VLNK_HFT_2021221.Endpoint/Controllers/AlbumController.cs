@@ -41,6 +41,7 @@ namespace C9VLNK_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] Album album)
         {
             albumLogic.AddAlbum(album);
+            hub.Clients.All.SendAsync("AlbumCreated", album);
         }
 
         // PUT api/<AlbumController>/5
@@ -51,7 +52,14 @@ namespace C9VLNK_HFT_2021221.Endpoint.Controllers
             hub.Clients.All.SendAsync("AlbumUpdated", album);
         }
 
-        
+        // DELETE album/1
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            albumLogic.DeleteAlbum(id);
+            hub.Clients.All.SendAsync("AlbumUpdated", null);
+        }
+
 
         //[Route("updatecountry/{id}/{newCountry}")]
         //[HttpPut("{id} {newCountry}")]
@@ -68,13 +76,6 @@ namespace C9VLNK_HFT_2021221.Endpoint.Controllers
         public void UpdateReleaseDate(int id, DateTime newReleaseDate)
         {
             albumLogic.UpdateAlbumReleaseDate(id, newReleaseDate);
-        }
-
-        // DELETE album/1
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            albumLogic.DeleteAlbum(id);
         }
     }
 }

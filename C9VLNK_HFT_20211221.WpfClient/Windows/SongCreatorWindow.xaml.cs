@@ -64,23 +64,21 @@ namespace C9VLNK_HFT_20211221.WpfClient.Windows
 
         private void SaveSong_ButonClick(object sender, RoutedEventArgs e)
         {
-            Song newSong = new Song();
+            var answer = MessageBox.Show("Are you finnished with the new song?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (answer == MessageBoxResult.Yes)
+            {
+                Song newSong = new Song();
+                newSong.Title = tb_Title.Text;
+                newSong.SongGenre = (Genres)Enum.Parse(typeof(Genres), cb_songGenre.Text);
+                newSong.Length = TimeSpan.Parse(tb_songLenght.Text);
+                newSong.SongCover = img_songPicture.Source.ToString();
+                newSong.Plays = int.Parse(tb_plays.Text);
+                newSong.AlbumId = int.Parse(tb_albumId.Text);
+                newSong.Producer = tb_producer.Text;
+                (this.DataContext as SongCreatorViewModel).AddNewlyCreatedSong(newSong);
+                this.DialogResult = true;
 
-            
-            newSong.Title = tb_Title.Text;
-            newSong.SongGenre = (Genres)Enum.Parse(typeof(Genres), cb_songGenre.Text);
-            newSong.Length = TimeSpan.Parse(tb_songLenght.Text);
-            newSong.SongCover = img_songPicture.Source.ToString();
-            newSong.Plays = int.Parse(tb_plays.Text);
-            newSong.AlbumId = int.Parse(tb_albumId.Text);
-            newSong.Producer = tb_producer.Text;
-
-
-            (this.DataContext as SongCreatorViewModel).AddNewlyCreatedSong(newSong);
-            this.DialogResult = true;
-
+            }
         }
     }
-
-
 }

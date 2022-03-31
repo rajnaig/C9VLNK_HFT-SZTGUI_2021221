@@ -9,7 +9,7 @@ namespace C9VLNK_HFT_2021221.Models
     public class Song
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SongId { get; set; }
 
         [NotMapped]
@@ -41,7 +41,6 @@ namespace C9VLNK_HFT_2021221.Models
 
         public string SongCover { get; set; }
 
-        [Required]
         public DateTime ReleaseDate { get; set; }
 
         [JsonIgnore]

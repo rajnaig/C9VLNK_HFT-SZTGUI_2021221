@@ -54,6 +54,16 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
         {
             Songs.Add(song);
         }
+
+        public void DeleteSongById(int songId)
+        {
+            var answer = MessageBox.Show("Are you sure that you want to remove the choosen song?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (answer == MessageBoxResult.Yes)
+            {
+                Songs.Delete(songId);
+            }
+
+        }
         public static bool IsInDesignMode
         {
             get
@@ -77,17 +87,13 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
         {
             if (!IsInDesignMode)
             {
-                Songs = new RestCollection<Song>("http://localhost:39308/", "song");
+                Songs = new RestCollection<Song>("http://localhost:39308/", "song","hub");
                 this.songEditorService = songEditorService;
                 this.songCreatorService = songCreatorService;
-                DeleteSongCommand = new RelayCommand(() =>
-                {
-                    Songs.Delete(SelectedSong.AlbumId);
-                },
-                () =>
-                {
-                    return SelectedSong != null;
-                });
+                DeleteSongCommand = new RelayCommand(
+                    () => DeleteSongById(SelectedSong.SongId),
+                    () => SelectedSong != null
+                );
 
                 EditSongCommand = new RelayCommand(
                     () => songEditorService.EditSong(SelectedSong),

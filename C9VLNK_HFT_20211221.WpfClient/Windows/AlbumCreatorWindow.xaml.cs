@@ -64,15 +64,19 @@ namespace C9VLNK_HFT_20211221.WpfClient.Windows
 
         private void SaveAlbum_ButonClick(object sender, RoutedEventArgs e)
         {
-            Album newAlbum = new Album();
-            
-            newAlbum.AlbumTitle = tb_Title.Text;
-            newAlbum.ArtistId = int.Parse(tb_artistId.Text);
-            newAlbum.ReleaseDate = DateTime.Parse(tb_albumReleaseDate.Text);
-            newAlbum.AlbumCover = img_albumPicture.Source.ToString();
+            var answer = MessageBox.Show("Are you finnished with the new abum?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (answer == MessageBoxResult.Yes)
+            {
+                Album newAlbum = new Album();
 
-            (this.DataContext as AlbumCreatorViewModel).AddNewlyCreatedAlbum(newAlbum);
-            this.DialogResult = true;
+                newAlbum.AlbumTitle = tb_Title.Text;
+                newAlbum.ArtistId = int.Parse(tb_artistId.Text);
+                newAlbum.ReleaseDate = DateTime.Parse(tb_albumReleaseDate.Text);
+                newAlbum.AlbumCover = img_albumPicture.Source.ToString();
+
+                (this.DataContext as AlbumCreatorViewModel).AddNewlyCreatedAlbum(newAlbum);
+                this.DialogResult = true;
+            }
         }
 
     }

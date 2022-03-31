@@ -36,17 +36,7 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
             }
         }
 
-
-        private RestCollection<Artist> artists;
-
-        public RestCollection<Artist> Artists
-        {
-            get { return artists; }
-            set
-            {
-                SetProperty(ref artists, value);
-            }
-        }
+        public RestCollection<Artist> Artists { get; set; }
 
         private Artist selectedArtist;
         public Artist SelectedArtist
@@ -69,11 +59,11 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
                         ProfilPicture = value.ProfilPicture
                     };
                     SetProperty(ref selectedArtist, value);
+                    
                     ((RelayCommand)DeleteArtistCommand).NotifyCanExecuteChanged();
                     ((RelayCommand)EditArtistCommand).NotifyCanExecuteChanged();
                 }
             }
-
         }
 
         public ICommand DeleteArtistCommand { get; set; }
@@ -124,7 +114,7 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
         {
             if (!IsInDesignMode)
             {
-                Artists = new RestCollection<Artist>("http://localhost:39308/", "artist");
+                Artists = new RestCollection<Artist>("http://localhost:39308/", "artist","hub");
 
                 this.editorService = editorService;
                 this.creatorService = artistCreatorService;

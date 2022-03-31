@@ -30,15 +30,19 @@ namespace C9VLNK_HFT_20211221.WpfClient.Windows
 
         private void SaveArtist_ButonClick(object sender, RoutedEventArgs e)
         {
-            Artist newArtist = new Artist();
-            
-            newArtist.Name = tb_artistName.Text;
-            newArtist.ArtistGenre = (Genres)Enum.Parse(typeof(Genres), cb_artistGenre.Text);
-            newArtist.Country = (Countries)Enum.Parse(typeof(Countries), cb_artistCountry.Text);
-            newArtist.ProfilPicture = img_artisPicture.Source.ToString();
+            var answer = MessageBox.Show("Are you finnished with the new artist? ", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (answer == MessageBoxResult.Yes)
+            {
+                Artist newArtist = new Artist();
 
-            (this.DataContext as ArtistCreatorViewModel).Add(newArtist);
-            this.DialogResult = true;
+                newArtist.Name = tb_artistName.Text;
+                newArtist.ArtistGenre = (Genres)Enum.Parse(typeof(Genres), cb_artistGenre.Text);
+                newArtist.Country = (Countries)Enum.Parse(typeof(Countries), cb_artistCountry.Text);
+                newArtist.ProfilPicture = img_artisPicture.Source.ToString();
+
+                (this.DataContext as ArtistCreatorViewModel).Add(newArtist);
+                this.DialogResult = true;
+            } 
         }
 
         private void btn_BrowseNewPictureFromDevice(object sender, RoutedEventArgs e)

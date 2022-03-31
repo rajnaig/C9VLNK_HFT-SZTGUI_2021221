@@ -31,7 +31,9 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Content="Song Editor" Padding="10" Background="#272537"
+                <Label 
+                    Margin="10,0,0,0"
+                    Content="Song Editor" Padding="10" Background="#272537"
                    HorizontalContentAlignment="Center"
                    HorizontalAlignment="Left"
                        VerticalAlignment="Center"

@@ -8,15 +8,19 @@
         xmlns:ex="clr-namespace:C9VLNK_HFT_20211221.WpfClient.Extensions"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="ArtistCreatorWindow" Height="720" Width="450"
+        Title="ArtistCreatorWindow"
+        Height="720" Width="450"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
 
     
 
-    <Border MouseDown="Border_MouseDown" x:Name="border_editor"
-            CornerRadius="20">
+    <Border 
+        
+        MouseDown="Border_MouseDown" x:Name="border_editor"
+        CornerRadius="20"
+            >
 
         <Grid Background="#272537">
         <Grid.RowDefinitions>
@@ -32,7 +36,9 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Content="Create/Add New Atist" Padding="10" Background="#272537"
+            <Label Content="Create/Add New Atist"
+                    Margin="10,0,0,0"
+                   Padding="10" Background="#272537"
                    HorizontalContentAlignment="Center"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"

@@ -29,7 +29,9 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Content="Song Creator" Padding="10" Background="#272537"
+                <Label 
+                    Margin="10,0,0,0"
+                    Content="Song Creator" Padding="10" Background="#272537"
                    HorizontalContentAlignment="Center"
                    HorizontalAlignment="Left"
                        VerticalAlignment="Center"
@@ -116,7 +118,7 @@
                         Height="200"
                         Width="200"
                          HorizontalAlignment="Left"
-                        Source="{Binding ActualSong.SongCover,UpdateSourceTrigger=PropertyChanged}"
+                        Source="D:\Egyetem\4.felev\SZTGUI\Féléves Upgrade\C9VLNK_HFT_2021221-master\C9VLNK_HFT_2021221-master\C9VLNK_HFT_20211221.WpfClient\bin\Debug\net5.0-windows\Images\default-album-art.png"
                         />
 
                         </Button>

@@ -80,7 +80,7 @@ namespace C9VLNK_HFT_2021221.Logic
         }
         public IEnumerable<Song> ReadAllSongs()
         {
-            var songs = songRepository.GetAll().ToList();
+            var songs = songRepository.GetAll();
 
             if (songs == null)
             {

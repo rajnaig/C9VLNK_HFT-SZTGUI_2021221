@@ -60,17 +60,8 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
         {
         }
 
-
-        private RestCollection<Album> albums;
-
-        public RestCollection<Album> Albums
-        {
-            get { return albums; }
-            set
-            {
-                SetProperty(ref albums, value);
-            }
-        }
+        public RestCollection<Album> Albums { get; set; }
+       
         public void UpdateAlbum(Album album)
         {
             Albums.Update(album);
@@ -90,13 +81,14 @@ namespace C9VLNK_HFT_20211221.WpfClient.ViewModel
             }
 
         }
-        public AlbumViewModel(IAlbumEditorService albumEditorService,IAlbumCreatorService albumCreatorService)
+        public AlbumViewModel(IAlbumEditorService  albumEditorService,
+                              IAlbumCreatorService albumCreatorService)
         {
             if (!IsInDesignMode)
             {
                 this.albumEditorService = albumEditorService;
                 this.albumCreatorService = albumCreatorService;
-                Albums = new RestCollection<Album>("http://localhost:39308/", "album");
+                Albums = new RestCollection<Album>("http://localhost:39308/", "album","hub");
 
                 DeleteAlbumCommand = new RelayCommand(() =>
                 {

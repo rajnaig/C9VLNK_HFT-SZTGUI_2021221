@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <h1>Artist Catalog</h1>
+
+    <div id="formdiv">
+        <label>Artist Name</label>
+        <input type="text" id="artistname" />
+
+        <label>Artist Genre</label>
+        <input type="number" id="artistgenre" />
+
+        <label>Artist Country</label>
+        <input type="number" id="artistcountry" />
+
+        <label>Artist Profil</label>
+
+        <input type="file" id="artistPic" />
+
+
+        <button type="button" onclick="createArtist()">Add Artist</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Artist ID</th>
+                <th>Name</th>
+                <th>Genre</th>
+                <th>Country</th>
+                <th>Picture</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="artistResultArea">
+        </tbody>
+    </table>
+
+
+    <h1>Album Catalog</h1>
+
+    <div id="formdiv">
+        <label>Album Title</label>
+        <input type="text" id="albumTitle" />
+
+        <label>Release Date</label>
+        <input type="date" id="albumDate" />
+
+        <label>Artist Id</label>
+        <input type="number" id="aldumArtistId" />
+
+        <label>Album Cover</label>
+        <input type="file" id="albumCover" />
+
+        <button type="button" onclick="createAlbum()">Add Album</button>
+    </div>
+
+    <table>
+        <thead>
+        <thead>
+            <tr>
+                <th>Album ID</th>
+                <th>Title</th>
+                <th>Release</th>
+                <th>Artist ID</th>
+                <th>Album Cover</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="albumResultArea">
+        </tbody>
+    </table>
+
+    <h1>Song Catalog</h1>
+
+    <div id="formdiv">
+        <label>Song Title</label>
+        <input type="text" id="songTitle" />
+
+        <label>Album Id</label>
+        <input type="number" id="songAlbumId" />
+
+        <label>Song Plays</label>
+        <input type="number" id="songPlays" />
+
+        <label>Song Genre</label>
+        <input type="number" id="songGenre" />
+
+        <label>Producer</label>
+        <input type="text" id="songProducer" />
+
+        <label>Song Cover</label>
+        <input type="file" id="songCover" />
+
+        <button type="button" onclick="createSong()">Add Song</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Song Id</th>
+                <th>Album Id</th>
+                <th>Title</th>
+                <th>Plays</th>
+                <th>Song Genre</th>
+                <th>Producer</th>
+                <th>Song Cover</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="songResultArea">
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>

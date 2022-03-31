@@ -291,6 +291,7 @@ namespace C9VLNK_HFT_20211221.WpfClient
             this.rest = new RestService(baseurl, endpoint);
             if (hub != null)
             {
+               
                 this.notify = new NotifyService(baseurl + hub);
                 this.notify.AddHandler<T>(type.Name + "Created", (T item) =>
                 {
@@ -309,7 +310,6 @@ namespace C9VLNK_HFT_20211221.WpfClient
                     {
                         Init();
                     }
-
                 });
                 this.notify.AddHandler<T>(type.Name + "Updated", (T item) =>
                 {

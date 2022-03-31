@@ -55,6 +55,12 @@ namespace C9VLNK_HFT_2021221.Endpoint
                 await context.Response.WriteAsJsonAsync(response);
             }));
 
+            app.UseCors(x => x
+            .AllowCredentials()
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .WithOrigins("http://localhost:18968"));
+
             app.UseRouting();
 
             app.UseAuthorization();

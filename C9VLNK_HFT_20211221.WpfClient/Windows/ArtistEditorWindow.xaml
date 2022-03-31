@@ -11,9 +11,9 @@
         xmlns:model="clr-namespace:C9VLNK_HFT_2021221.Models;assembly=C9VLNK_HFT_2021221.Models"
         xmlns:vm="clr-namespace:C9VLNK_HFT_20211221.WpfClient.ViewModel"
         xmlns:ex="clr-namespace:C9VLNK_HFT_20211221.WpfClient.Extensions"
-        
         mc:Ignorable="d"
-        Title="ArtistEditorWindow" Height="720" Width="450"
+        Title="ArtistEditorWindow"
+        Height="720" Width="450"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
@@ -33,7 +33,10 @@
                 </Grid.ColumnDefinitions>
             </Grid>
             
-            <Label Content="Artist Editor" Padding="10" Background="#272537"
+            <Label Content="Artist Editor"
+                   Padding="10"
+                   Margin="10,0,0,0"
+                   Background="#272537"
                    HorizontalContentAlignment="Center"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"

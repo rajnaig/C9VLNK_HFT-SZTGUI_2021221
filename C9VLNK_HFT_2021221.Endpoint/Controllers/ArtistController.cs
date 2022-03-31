@@ -36,13 +36,12 @@ namespace C9VLNK_HFT_2021221.Endpoint.Controllers
             return artistLogic.GetArtist(id);
         }
 
-
-
         // POST /artist
         [HttpPost]
         public void Post([FromBody] Artist value)
         {
             artistLogic.AddArtist(value);
+            hub.Clients.All.SendAsync("ArtistCreated", value);
         }
 
         // PUT /artist
@@ -62,6 +61,13 @@ namespace C9VLNK_HFT_2021221.Endpoint.Controllers
             artistLogic.UpdateArtistName(id, newName);
         }
 
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            artistLogic.DeleteArtist(id);
+            hub.Clients.All.SendAsync("ArtistDeleted", null);
+        }
+
 
         // PUT /artist /newNationality
         [Route("updatecountry/{id}/{newCountry}")]
@@ -72,11 +78,7 @@ namespace C9VLNK_HFT_2021221.Endpoint.Controllers
         }
 
         // DELETE artist/1
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            artistLogic.DeleteArtist(id);
-        }
+        
 
         [Route("mostfamouscountrybyartistscount")]
         [HttpGet]
@@ -84,20 +86,5 @@ namespace C9VLNK_HFT_2021221.Endpoint.Controllers
         {
             return artistLogic.MostFamousCountryByArtistsCount();
         }
-
-
-
-
-
-
-
-        // NON-CRUD API CALL METHODS
-
-        //public IEnumerable<>
-
-
-
-
-
     }
 }
